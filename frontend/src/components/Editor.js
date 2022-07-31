@@ -31,7 +31,7 @@ const Editor = (props) => {
                           method: 'POST',
                           headers: {
                               'Content-Type': 'application/json',
-                              'Authorization':tk,
+                              'Authorization':`Bearer ${tk}`,
                           },
                           body: JSON.stringify({code,stdin})
                       })
@@ -71,6 +71,12 @@ const Editor = (props) => {
           if(origin!=='setValue'){
             sendMessage(code);
           }
+          socket.on('newconn',() => {
+            // appendMessage(msg, 'incoming')
+            sendMessage(code) 
+            
+        })
+          
           
         });
 
