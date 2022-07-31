@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cors());
 
 // app.use("/code",protect)
-app.use("/home/code/",protect)
+//app.use("/home/code/",protect)
 
 app.use("/api/user",userRoutes);
 

@@ -53,12 +53,13 @@ const Login2 = () => {
       );
     if(data){
         
-        if(data.status!=401){
+        if(data.status!==401){
+            const tk=data.token;
             const nm=data.name;
             const em=data.email;
             navigate(`/home`,{
                 state:{
-                nm,em
+                nm,em,tk
                 },
             }
             )
@@ -159,13 +160,15 @@ const Login2 = () => {
 
 
   return (
+    <>
+    <h1 id='logTitle'>CODE FRIENDS</h1>
     <div style={{width: '100vw',height:'100vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
-      <Container maxW='2xl' bg="blue.300" centerContent p="0" paddingBlock={'2px'} paddingInline={'2px'} borderRadius='9px'>
+      <Container id='cont' maxW='2xl' bg="green.600" centerContent p="0" paddingBlock={'2px'} paddingInline={'2px'} borderRadius='9px'>
           {/* <Box
           p="-10px"
           w='100%'
           borderWidth="0px"
-          borderRadius="lg">
+          borderRadius="md">
               <Text 
                 fontsize="4xl"
                 fontFamily="Roboto"
@@ -173,25 +176,27 @@ const Login2 = () => {
                 color="white"
                 align='center'>Code Online</Text>
           </Box> */}
-          <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
+          <Box id='Box'bg='blue.800' w="100%" p={4} borderRadius="md" borderWidth="1px">
           <Tabs isFitted variant="soft-rounded">
             <TabList marginBlock={'5px'}>
-              <Tab width="50%">Login</Tab>
-              <Tab width="50%">Sign Up</Tab>
+              <Tab width="50%" bg='white'>Login</Tab>
+              <Tab width="50%" bg='white'>Sign Up</Tab>
             </TabList>
             <TabPanels> 
               <TabPanel>
               <Stack spacing={'3'}>
-                <InputGroup size='lg'>
+                <InputGroup size='md'>
                   <InputLeftAddon children={<EmailIcon/>}></InputLeftAddon>          
-                  <Input placeholder='Email'
+                  <Input 
+                  color={'white'}
+                  placeholder='Email'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   />
                 </InputGroup>
-                <InputGroup size='lg'>
+                <InputGroup size='md'>
                   <InputLeftAddon children={<LockIcon/>}></InputLeftAddon>
-                  <Input placeholder='Password'
+                  <Input  color={'white'} placeholder='Password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   type={show ? "text" : "password"}
@@ -208,7 +213,7 @@ const Login2 = () => {
                   >Log in</Button>
                   <Button
                   variant="solid"
-                  colorScheme="red"
+                  colorScheme="green"
                   width="100%"
                   onClick={() => {
                   setEmail("guest@example.com");
@@ -221,23 +226,26 @@ const Login2 = () => {
               </TabPanel>
               <TabPanel>
                 <Stack spacing={'3'}>
-                <InputGroup size='lg'>
+                <InputGroup size='md'>
                   <InputLeftAddon children={<FaUser/>}></InputLeftAddon>          
-                  <Input placeholder='Name'
+                  <Input color={'white'} placeholder='Name'
                   onChange={(e) => setName(e.target.value)}
                   />
                 </InputGroup>
-                <InputGroup size='lg'>
+                <InputGroup size='md' >
                   <InputLeftAddon children={<EmailIcon/>}></InputLeftAddon>          
                   <Input 
+                  color={'white'}
                   type="email"
                   placeholder='Email'
                   onChange={(e) => setEmail(e.target.value)}
                   />
                 </InputGroup>
-                <InputGroup size='lg'>
+                <InputGroup size='md'>
                   <InputLeftAddon children={<UnlockIcon/>}></InputLeftAddon>
-                  <Input placeholder='Password'
+                  <Input
+                  color={'white'}
+                  placeholder='Password'
                   type={show ? "text" : "password"}
                   onChange={(e) => setPassword(e.target.value)}
                   />
@@ -249,9 +257,9 @@ const Login2 = () => {
                   </InputRightElement>
 
                   </InputGroup>
-                  <InputGroup  size='lg'>
+                  <InputGroup  size='md'>
                   <InputLeftAddon children={<LockIcon/>}></InputLeftAddon>
-                  <Input 
+                  <Input color={'white'}
                       type={show ? "text" : "password"}
                       placeholder="Confirm password"
                       onChange={(e) => setConfirmpassword(e.target.value)}
@@ -273,7 +281,7 @@ const Login2 = () => {
           </Tabs>
         </Box>
       </Container>
-    </div>
+    </div></>
   )
 };
 

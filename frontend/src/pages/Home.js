@@ -3,12 +3,14 @@ import React, {useState} from 'react';
 import {v4} from 'uuid';
 import {useNavigate} from 'react-router-dom';
 import io from 'socket.io-client';
-
+import { useLocation } from "react-router-dom";
 export const socket=io('http://localhost:8000/');
 
 export const Home = () => {
     const navigate =useNavigate();
-    
+    const location = useLocation();
+    let {tk} = location.state;
+    // console.log(tk);
     const [roomId,setRoomId] = useState('');
     const [proTitle,setproTitle] = useState('');
     const createRoom= (e)=>{
@@ -38,7 +40,7 @@ export const Home = () => {
         // socket.emit('message',proTitle)
         navigate(`/home/code/${roomId}`,{
             state:{
-              proTitle,roomId 
+              proTitle,roomId,tk
             },
         }
         )

@@ -73,8 +73,17 @@
     transition: .1s;
     font-weight: bold;
 }
-
-.joinBtn:hover {
+.runBtn{
+    color: #eee;
+    background-color: #07b22c;
+    border-radius: 5px;
+    transition: .1s;
+    font-weight: bold;
+    padding-block: 1px;
+    padding-inline: 10px;
+    align-self: right;
+}
+.joinBtn:hover,.runBtn:hover {
     color: #07b22c;
     background-color: #eee;
 }
@@ -88,15 +97,23 @@
     grid-template-columns: 10fr 1fr ;
     
 }
+/* .chatwrap{
+    border-width: 2px;
+    border-color: #07b22c;
+    border-radius: 3px;
+} */
 .editWrap{
     background:#0b102a;
     /* display: grid;
     grid-template-rows: .65fr .35fr ; */
+    border-width: 2px;
+    border-color: #07b22c;
+    border-radius: 3px;
 }
 .topTerminal{
     height: 65vh;
     font-size: 16px;
-    background-color: #282a36
+    background-color: #282a36;
 }
 /* #liveCode {
     height: 500px;
@@ -107,6 +124,8 @@
     height: 100%;
     display: grid;
     grid-template-columns: .35fr 1fr;
+    /* border-width: 2px;
+    border-top: 2px #07b22c; */
 }
 .in{
     display: inline;
@@ -121,8 +140,9 @@
     height: 33vh;
     outline: none;
     margin-inline: 0px;
-    /* background-color: black;
-    color:#07b22c; */
+    background-color: rgb(135, 135, 135);
+    color:#07b22c;
+    border-radius: 2px;
 }
 .CodeMirror-scroll, 
 .CodeMirror cm-s-erlang-dark,
@@ -137,8 +157,8 @@
     background-color:rgb(167, 167, 167);
 }
 .panel{
-    color: rgb(57, 231, 231);
-    background-color: #162469;
+    color: #fff;
+    background-color: #03021e;
 }
 .dropList{
     margin-left: 10px;
@@ -147,10 +167,7 @@
     outline: none;
     border-radius: 5px;
 }
-.runBtn{
-    background-color: #07b22c;
-    margin-left: 20px;
-}
+
 
 #ipT,#ioT{
     margin-left: 8px;
@@ -184,8 +201,8 @@
     font-family: 'Roboto', sans-serif;
     outline:none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    /* border-width: 3px; */
-    border-color: #1cab91;
+    border-width: 2px;
+    border-color:#07b22c;
     border-style: solid;
     border-radius: 3px;
 }
@@ -200,7 +217,7 @@
 
 .brand {
     padding: 15px;
-    background:#1cab91;
+    background:#03021e;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,13 +233,13 @@
 }
 
 .message__area {
-    height: 380px;
+    height: 382px;
     padding: 5px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     padding-top: 40px;
-    background: #aeaaaa;
+    background: #000000;
 }
 
 #chatcmsg {
@@ -261,4 +278,17 @@
     left: 0;
     color: #333;
     font-size: 14px;
+}
+
+
+#cont{
+    background-color:#07b22c;
+}
+#Box{
+    background-color: rgb(6, 25, 58);
+}
+#logTitle{
+    font-size: 30px;
+    color: #fff;
+    font-weight: bold;
 }

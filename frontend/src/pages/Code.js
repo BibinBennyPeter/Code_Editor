@@ -5,18 +5,19 @@ import Chat from "../components/Chat";
 import { useLocation } from "react-router-dom";
 export const Code = () => {
   const location = useLocation();
-  let { proTitle, roomId } = location.state;
+  let { proTitle, roomId, tk } = location.state;
+  //console.log(tk);
 
   return (
     <div className="codeWrap">
       <div className="editWrap">
         
-          <Editor id={roomId} title={proTitle} />
+          <Editor id={roomId} title={proTitle} t={tk}/>
 
       </div>
       <div className="chatWrap">
         <div>
-        <Chat id={roomId} title={proTitle} /></div>
+        <Chat id={roomId} title={proTitle}/></div>
         {/* <div>
           <Error/>
         </div> */}

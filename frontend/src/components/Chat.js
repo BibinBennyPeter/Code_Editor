@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 //import './Chat.css';
 import { socket } from '../pages/Home';
 export const Chat = (props) => {
@@ -37,15 +37,15 @@ export const Chat = (props) => {
     function appendChat(cmsg, type) {
         let mainDiv = document.createElement('div')
         let className = type
-    //     mainDiv.classList.add(className, 'message')
+        mainDiv.classList.add(className, 'message')
 
-    //     let markup = ` 
-    //         <h4>${cmsg.user}</h4>
-    //         <p>${cmsg.message}</p>
-    //     `
-    //     mainDiv.innerHTML = markup
-    //    // messageArea.createElement("div",{className:"mainDiv"},cmsg.message);
-    //    messageArea.Node.appendChild(mainDiv);
+        let markup = ` 
+            <h4>${cmsg.user}</h4>
+            <p>${cmsg.message}</p>
+        `
+        mainDiv.innerHTML = markup
+       // messageArea.createElement("div",{className:"mainDiv"},cmsg.message);
+       messageArea.appendChild(mainDiv);
     }
     function scrollToBottom() {
     messageArea.scrollTop = messageArea.scrollHeight

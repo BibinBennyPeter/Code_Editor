@@ -16,6 +16,8 @@ const Editor = (props) => {
   const editor=useRef(null)
   const roomId = props.id;
   const proTitle = props.title;
+  const tk = props.t;
+  console.log(tk);
   
   async function runFunc(){
       const code  =editor.current.getValue();
@@ -23,10 +25,12 @@ const Editor = (props) => {
       //const stdin = in.getValue();
       const stdin=inp;
       console.log(JSON.stringify({code}))
+  
       const result = await fetch('http://localhost:8000/home/code', {
                           method: 'POST',
                           headers: {
-                              'Content-Type': 'application/json'
+                              'Content-Type': 'application/json',
+                              'Authorization':tk,
                           },
                           body: JSON.stringify({code,stdin})
                       })
