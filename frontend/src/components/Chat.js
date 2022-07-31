@@ -7,11 +7,11 @@ export const Chat = (props) => {
     const [messageHistory,setMessageHistory] = useState([]);
     const [msgHistLen,setMsgHistLen] = useState(-1);
 
-    let roomId = props.id,
-        proTitle = props.title;
+    let roomId = props.id;
+    let nm = props.n;
     const [cmsg,setCmsg] = useState({
         room: roomId,
-        user: proTitle,
+        user: nm,
         message: ""
     })
     const [textMessage,setTextMessage] = useState("");
@@ -31,7 +31,7 @@ export const Chat = (props) => {
     function sendChat(message) {
         let cmsg = {
             room: roomId,
-            user: proTitle,
+            user: nm,
             message: message.trim()
         }
         setCmsg(cmsg)
@@ -91,7 +91,7 @@ export const Chat = (props) => {
                 <div className="chat__section">
                     <div className="brand">
                         {/* <img height="40" src="/wassup.png" alt=""/> */}
-                        <h1 id='chatTitle'> Example title</h1>
+                        <h1 id='chatTitle'>Code Freinds</h1>
                     </div>
                     <div className="message__area">
                         {messageHistory.map((inp)=>inp)}

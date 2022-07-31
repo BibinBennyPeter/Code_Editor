@@ -5,7 +5,7 @@ import Error from "../components/Youtube/Error";
 import { useLocation } from "react-router-dom";
 export const Code = () => {
   const location = useLocation();
-  let { proTitle, roomId, tk } = location.state;
+  let { proTitle, roomId, nm, tk } = location.state;
   //console.log(tk);
 
   return (
@@ -17,7 +17,7 @@ export const Code = () => {
       </div>
       <div className="chatWrap">
         <div>
-        <Chat id={roomId} title={proTitle}/></div>
+        <Chat id={roomId} n={nm}/></div>
         <div>
           <Error/>
         </div>

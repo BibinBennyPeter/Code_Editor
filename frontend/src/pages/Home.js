@@ -9,8 +9,7 @@ export const socket=io('http://localhost:8000/');
 export const Home = () => {
     const navigate =useNavigate();
     const location = useLocation();
-    let {tk} = location.state;
-    // console.log(tk);
+    let {nm,tk} = location.state;
     const [roomId,setRoomId] = useState('');
     const [proTitle,setproTitle] = useState('');
     const createRoom= (e)=>{
@@ -40,7 +39,7 @@ export const Home = () => {
         // socket.emit('message',proTitle)
         navigate(`/home/code/${roomId}`,{
             state:{
-              proTitle,roomId,tk
+              proTitle,roomId,nm,tk
             },
         }
         )

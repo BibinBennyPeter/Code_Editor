@@ -56,6 +56,7 @@ const Login2 = () => {
         if(data.status!==401){
             const tk=data.token;
             const nm=data.name;
+            console.log(nm);
             const em=data.email;
             navigate(`/home`,{
                 state:{
