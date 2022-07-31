@@ -22,8 +22,8 @@ const http = require('http').createServer(app)
 app.use(express.json());
 app.use(cors());
 
-// app.use("/code",protect)
-//app.use("/home/code/",protect)
+app.use("/home",protect)
+app.use("/home/code/",protect)
 
 app.use("/api/user",userRoutes);
 
@@ -48,7 +48,10 @@ const PORT = process.env.PORT || 8000
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + '/index.html')
 // })
-
+app.use(express.static(path.join( __dirname,"../frontend/build")));
+app.get('/',(req, res)=>{
+    res.sendFile(path.join(__dirname,'..','frontend','build','index.html'))
+})
 
 app.post('/home/code',async(req, res)=>{
     const code =await req.body.code;
@@ -108,7 +111,7 @@ io.on('connection', (socket) => {
     socket.on('chat', (cmsg) => {
         if(cmsg.message!=undefined)
         {
-            console.log('backend ---- onoonon ')
+            // console.log('backend ---- onoonon ')
             //console.log(msg.room)
             socket.to(cmsg.room).emit('chat', cmsg);
             // console.log(cmsg.message)

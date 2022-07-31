@@ -19,6 +19,27 @@ const Editor = (props) => {
   const proTitle = props.title;
   const tk = props.t;
 
+  console.log(tk);
+  
+  async function runFunc(){
+      const code  =editor.current.getValue();
+      //const in=document.getElementById('in')
+      //const stdin = in.getValue();
+      const stdin=inp;
+      console.log(JSON.stringify({code}))
+  
+      const result = await fetch('http://localhost:8000/home/code', {
+                          method: 'POST',
+                          headers: {
+                              'Content-Type': 'application/json',
+                              'Authorization':`Bearer ${tk}`,
+                          },
+                          body: JSON.stringify({code,stdin})
+                      })
+                  .then((res) => res.json())
+                  .catch(err => { console.log("error:" + err) });
+// >>>>>>> 6322cd2af45847cf9951a22762ee40fe7514935d
+
   async function runFunc() {
     const code = editor.current.getValue();
     //const in=document.getElementById('in')
@@ -62,6 +83,7 @@ const Editor = (props) => {
         }
       );
 
+// <<<<<<< HEAD
       editor.current.on('change', (instance, changes) => {
         //console.log('changes',changes);
         const { origin } = changes;
@@ -70,6 +92,24 @@ const Editor = (props) => {
         if (origin !== 'setValue') {
           sendMessage(code);
         }
+// =======
+        editor.current.on('change',(instance,changes) => {
+          //console.log('changes',changes);
+          const {origin}=changes;
+          const code = instance.getValue();
+          //console.log(code);
+          if(origin!=='setValue'){
+            sendMessage(code);
+          }
+          socket.on('newconn',() => {
+            // appendMessage(msg, 'incoming')
+            sendMessage(code) 
+            
+        })
+          
+          
+        });
+// >>>>>>> 6322cd2af45847cf9951a22762ee40fe7514935d
 
       });
 
@@ -85,7 +125,7 @@ const Editor = (props) => {
       })
     };
     init();
-  }, [])
+  }, [])}
   return (
     <>
       <div className="topTerminal">
