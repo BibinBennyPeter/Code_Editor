@@ -111,7 +111,7 @@ io.on('connection', (socket) => {
     socket.on('chat', (cmsg) => {
         if(cmsg.message!=undefined)
         {
-            console.log('backend ---- onoonon ')
+            // console.log('backend ---- onoonon ')
             //console.log(msg.room)
             socket.to(cmsg.room).emit('chat', cmsg);
             // console.log(cmsg.message)
