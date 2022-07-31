@@ -1,7 +1,7 @@
 import React from "react";
 import Editor from "../components/Editor";
 import Chat from "../components/Chat";
-//import Error from "../components/Error";
+import Error from "../components/Youtube/Error";
 import { useLocation } from "react-router-dom";
 export const Code = () => {
   const location = useLocation();
@@ -18,9 +18,9 @@ export const Code = () => {
       <div className="chatWrap">
         <div>
         <Chat id={roomId} title={proTitle}/></div>
-        {/* <div>
+        <div>
           <Error/>
-        </div> */}
+        </div>
       </div>
     </div>
   );

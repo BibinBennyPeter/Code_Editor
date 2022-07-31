@@ -8,5 +8,6 @@ body {
 }
 .chakra-ui-light{
   background: #0b102a;
+  /* background-color: #000; */
    overflow: hidden;
 }

@@ -103,17 +103,20 @@
     border-radius: 3px;
 } */
 .editWrap{
-    background:#0b102a;
+    background:#000;
     /* display: grid;
     grid-template-rows: .65fr .35fr ; */
     border-width: 2px;
-    border-color: #07b22c;
+    border-color: #19ace7;
     border-radius: 3px;
 }
 .topTerminal{
     height: 65vh;
     font-size: 16px;
-    background-color: #282a36;
+    background-color: #000;
+    /* border-width: 2px;
+    border-color: #07b22c; */
+    border-bottom:dotted
 }
 /* #liveCode {
     height: 500px;
@@ -129,7 +132,7 @@
 }
 .in{
     display: inline;
-    width: 80%;
+    width: 90%;
     height: 33vh;
     margin-inline: 8px;
     border-radius: 4px;
@@ -140,33 +143,33 @@
     height: 33vh;
     outline: none;
     margin-inline: 0px;
-    background-color: rgb(135, 135, 135);
-    color:#07b22c;
+    background-color: #fff;
+    color: #000;;
     border-radius: 2px;
 }
 .CodeMirror-scroll, 
 .CodeMirror cm-s-erlang-dark,
 .CodeMirror{
-    height: 466px !important;
+    height: 475px, i !important;;
 }
-/* .textArea{
+/* #textArea{
     height: 476.84px !important;
-} */
-#output{
+}  */
+/* #output{
     color: #162469;
     background-color:rgb(167, 167, 167);
-}
+} */
 .panel{
     color: #fff;
     background-color: #03021e;
 }
-.dropList{
+/* .dropList{
     margin-left: 10px;
     background-color: rgb(57, 231, 231);
     color: #0b102a;
     outline: none;
     border-radius: 5px;
-}
+} */
 
 
 #ipT,#ioT{
@@ -174,12 +177,13 @@
     color: #fff;
     display: block;
 }
-
-.lrbox,.llbox{
+.llbox{
     display: inline-block;
+    width: 25%;
 }
 .lrbox{
-    width: 82.6%;
+    display: inline-block;
+    width: 75%;
 }
 
 
@@ -196,20 +200,20 @@
     /* background-image: url('background.png'); */
     align-items: center;
     justify-content: center;
-    max-height: 100%;
+    max-height: 70%;
     /* background: #2173cb4a; */
     font-family: 'Roboto', sans-serif;
     outline:none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border-width: 2px;
-    border-color:#07b22c;
+    border-color:#19ace7;
     border-style: solid;
     border-radius: 3px;
 }
 
 .chat__section {
     /* width: px; */
-    width: 33vw;
+    width: 100%;
     background: #fff;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     
@@ -276,7 +280,7 @@
     position: absolute;
     top: -20px;
     left: 0;
-    color: #333;
+    color: #fff;
     font-size: 14px;
 }
 

@@ -80,27 +80,17 @@ app.post('/home/code',async(req, res)=>{
 
 io.on('connection', (socket) => {
     //npm console.log('Connected..')
-    socket.on('message',(roomId)=>
-    {
-
+    socket.on('message',(roomId)=>{
         socket.join(roomId);
-        
         //console.log(roomId)
-        
     }
     )
-     socket.on('chat',(roomId)=>
-    {
-
-        socket.join(roomId);
-        
+     socket.on('chat',(roomId)=>{
+        socket.join(roomId);   
         //console.log(roomId)
-        
     }
     )
     socket.on('new',(roomId)=>{
-
-
         socket.to(roomId).emit('newconn');
     })
     
@@ -118,10 +108,10 @@ io.on('connection', (socket) => {
     socket.on('chat', (cmsg) => {
         if(cmsg.message!=undefined)
         {
-            // console.log(msg.user)
+            console.log('backend ---- onoonon ')
             //console.log(msg.room)
             socket.to(cmsg.room).emit('chat', cmsg);
-            //console.log(cmsg.message)
+            // console.log(cmsg.message)
             // socket.to(msg.room).emit('typing',msg);
         }
     })

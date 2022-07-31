@@ -2,7 +2,8 @@ import React, {useState, useEffect, useRef } from 'react'
 import Codemirror from 'codemirror'
 import axios from 'axios'
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/erlang-dark.css';
+// import 'codemirror/theme/erlang-dark.css';
+import 'codemirror/theme/colorforth.css';
 import 'codemirror/mode/python/python';
 //import 'codemirror/mode/clike/clike';
 //import 'codemirror/lib/java';
@@ -55,7 +56,7 @@ const Editor = (props) => {
           document.getElementById('liveCode') , 
           {
             mode: "text/x-python",
-            theme:'erlang-dark',
+            theme:'colorforth',
             autoCloseTags:true,
             autoCloseBrackets:true,
             lineNumbers:true,
@@ -70,6 +71,7 @@ const Editor = (props) => {
           if(origin!=='setValue'){
             sendMessage(code);
           }
+          
         });
 
         editor.current.setValue('print("hello world")');
