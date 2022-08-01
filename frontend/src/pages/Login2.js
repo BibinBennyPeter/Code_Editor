@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
 import {Stack, Box, Container, Input, InputGroup, InputLeftAddon, Tab, TabList, TabPanel, TabPanels, Tabs, Button,InputRightElement /*Text*/ } from '@chakra-ui/react'
-import {EmailIcon,LockIcon, UnlockIcon} from '@chakra-ui/icons'
-import {FaUser} from "react-icons/fa";
+import {LockIcon, UnlockIcon} from '@chakra-ui/icons'
+import {FaUser,FaAt} from "react-icons/fa";
 import {useToast } from "@chakra-ui/react";
 //import {useHistory} from 'use-history'
 import {useNavigate} from 'react-router-dom';
@@ -180,7 +180,7 @@ const Login2 = () => {
     <div style={{width: '100vw',height:'100vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
       {/* <div><h1 id='logTitle'>CODE FRIENDS</h1></div> */}
       <img className='logo' src="/logo2.png" alt='logo'/>
-      <Container id='cont' maxW='2xl' bg="green.600" centerContent p="0" paddingBlock={'2px'} paddingInline={'2px'} borderRadius='9px'>
+      <Container id='cont' maxW='2xl' centerContent p="0" paddingBlock={'2px'} paddingInline={'2px'} borderRadius='9px'>
           {/* <Box
           p="-10px"
           w='100%'
@@ -228,9 +228,9 @@ const Login2 = () => {
                     onClick={submitHandler}
                     isLoading={loading}
                   >Log in</Button>
-                  <Button
+                  <Button className='getBtn'
+
                   variant="solid"
-                  colorScheme="green"
                   width="100%"
                   onClick={() => {
                   setEmail("guest");
@@ -250,11 +250,11 @@ const Login2 = () => {
                   />
                 </InputGroup>
                 <InputGroup size='md' >
-                  <InputLeftAddon children={<EmailIcon/>}></InputLeftAddon>          
+                  <InputLeftAddon children={<FaAt/>}></InputLeftAddon>          
                   <Input 
                   color={'white'}
                   type="email"
-                  placeholder='Email'
+                  placeholder='Username'
                   onChange={(e) => setEmail(e.target.value)}
                   />
                 </InputGroup>

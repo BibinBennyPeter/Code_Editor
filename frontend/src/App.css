@@ -325,7 +325,7 @@
 
 
 #cont{
-    background-color:#07b22c;
+    background-color:#19ace7;
     display: block;
     margin-left: 30px;
 }
@@ -341,4 +341,13 @@
 }
 .field{
     margin-top: 10px;
+}
+.getBtn{
+    background-color: #07b22c !important;
+    color: #fff;
+    transition: .1s
+}
+.getBtn:hover{
+    color: #07b22c;
+    background-color: #eee !important;
 }
