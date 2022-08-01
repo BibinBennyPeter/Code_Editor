@@ -21,7 +21,7 @@ export const Chat = (props) => {
     const handle=(e) => {
         
         
-        setTextMessage(e.target.value.trim());
+        setTextMessage(e.target.value);
         if(e.key === 'Enter') {
             sendChat(e.target.value)
             //console.log('hi')
@@ -32,7 +32,7 @@ export const Chat = (props) => {
         let cmsg = {
             room: roomId,
             user: nm,
-            message: message.trim()
+            message: message
         }
         setCmsg(cmsg)
         
@@ -96,11 +96,11 @@ export const Chat = (props) => {
                     <div className="message__area">
                         {messageHistory.map((inp)=>inp)}
                     </div>
-                    <div>
+                    {/* <div> */}
                         <textarea
                         id="chatcmsg" 
-                        // cols="30" 
-                        // rows="1" 
+                        cols="30" 
+                        rows="1" 
                         value={textMessage}
                         onChange={(e)=>{setTextMessage(e.target.value)}}
                         placeholder="Write a message..."
@@ -108,7 +108,7 @@ export const Chat = (props) => {
                         
                         />
                             {/* {textMessage} */}
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         </div>

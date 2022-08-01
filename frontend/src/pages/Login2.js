@@ -134,6 +134,21 @@ const Login2 = () => {
         },
         config
       );
+      //up
+      if(data){
+        
+        if(data.status!==401){
+            const tk=data.token;
+            const nm=data.name;
+            console.log(nm);
+            const em=data.email;
+            navigate(`/home`,{
+                state:{
+                nm,em,tk
+                },
+            }
+            )
+        }}
       console.log(data);
       toast({
         title: "Registration Successful",
@@ -162,8 +177,9 @@ const Login2 = () => {
 
   return (
     <>
-    <h1 id='logTitle'>CODE FRIENDS</h1>
     <div style={{width: '100vw',height:'100vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
+      {/* <div><h1 id='logTitle'>CODE FRIENDS</h1></div> */}
+      <img className='logo' src="/logo2.png" alt='logo'/>
       <Container id='cont' maxW='2xl' bg="green.600" centerContent p="0" paddingBlock={'2px'} paddingInline={'2px'} borderRadius='9px'>
           {/* <Box
           p="-10px"
@@ -187,10 +203,10 @@ const Login2 = () => {
               <TabPanel>
               <Stack spacing={'3'}>
                 <InputGroup size='md'>
-                  <InputLeftAddon children={<EmailIcon/>}></InputLeftAddon>          
+                  <InputLeftAddon children={<FaUser/>}></InputLeftAddon>          
                   <Input 
                   color={'white'}
-                  placeholder='Email'
+                  placeholder='Username'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   />
@@ -217,8 +233,8 @@ const Login2 = () => {
                   colorScheme="green"
                   width="100%"
                   onClick={() => {
-                  setEmail("guest@example.com");
-                  setPassword("123456");
+                  setEmail("guest");
+                  setPassword("123");
                   }}
                 >
                   Get Guest User Credentials

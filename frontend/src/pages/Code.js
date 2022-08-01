@@ -5,14 +5,14 @@ import Error from "../components/Youtube/Error";
 import { useLocation } from "react-router-dom";
 export const Code = () => {
   const location = useLocation();
-  let { proTitle, roomId, nm, tk } = location.state;
+  let { roomId, nm, tk } = location.state;
   //console.log(tk);
 
   return (
     <div className="codeWrap">
       <div className="editWrap">
         
-          <Editor id={roomId} title={proTitle} t={tk}/>
+          <Editor id={roomId} t={tk}/>
 
       </div>
       <div className="chatWrap">

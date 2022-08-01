@@ -11,7 +11,7 @@ export const Home = () => {
     const location = useLocation();
     let {nm,tk} = location.state;
     const [roomId,setRoomId] = useState('');
-    const [proTitle,setproTitle] = useState('');
+    // const [proTitle,setproTitle] = useState('');
     const createRoom= (e)=>{
         e.preventDefault();
         const id = v4();
@@ -19,15 +19,15 @@ export const Home = () => {
         toast.success("Room created");
     }
     const joinRoom =()=>{
-        if(!roomId && !proTitle){
-            toast.error("ROOM ID and Project title is required");
-            return;
-        }
-        else if(!proTitle){
-            toast.error("Project title is required");
-            return;
-        }
-        else if(!roomId){
+        // if(!roomId && !proTitle){
+        //     toast.error("ROOM ID and Project title is required");
+        //     return;
+        // }
+        // else if(!proTitle){
+        //     toast.error("Project title is required");
+        //     return;
+        // }
+         if(!roomId){
             toast.error("ROOM ID is required");
             return;
         }
@@ -39,7 +39,7 @@ export const Home = () => {
         // socket.emit('message',proTitle)
         navigate(`/home/code/${roomId}`,{
             state:{
-              proTitle,roomId,nm,tk
+              roomId,nm,tk
             },
         }
         )
@@ -81,8 +81,8 @@ export const Home = () => {
     <>
     <div className='hpWrap'>
         <div className='formWrap'>
-            <img className='logoHome' src="/logo192.png" alt='logo'/>
-            <h4 className='tag'>Code Friends</h4>
+            <img className='logoHome' src="/logo2.png" alt='logo'/>
+            <h4 className='tag'>Room</h4>
             <div className='ipGroup'>
                 <input
                     type='text'
@@ -92,14 +92,14 @@ export const Home = () => {
                     value={roomId}
                     onKeyUp={handleInp}
                 />
-                <input
+                {/* <input
                     type='text'
                     className='ipBox'
                     placeholder='PROJECT NAME'
                      onChange={(e=>setproTitle(e.target.value))}
                     value={proTitle}
                     onKeyUp={handleInp}
-                />
+                /> */}
                 <button onClick={joinRoom} className='btn joinBtn'>Join</button>
                 <span className='createInfo'>
                     Don't have a Room? &nbsp;<a onClick={createRoom} href="" className='createNewBtn'>Create new Room</a>

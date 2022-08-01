@@ -9,11 +9,28 @@
     background-color: #0b102a;
     color: rgb(0, 0, 0);
 }
-
+#logTitle{
+    /* margin: auto; */
+    text-align: center; 
+    align-self: center;
+    justify-content: center;
+     
+}
+.logo{
+    margin-left: 280px;
+    width: 250px;
+    height: 310px;;
+}
+.logoHome{
+    margin: 0px 100px 5px;
+    /* align-self: center; */
+    width: 110px;
+    height: 100px;
+}
 .formWrap {
     background-color: rgb(6, 25, 58);
-    display: inline;
-    height: 350px;
+    display: block;
+    height: 300px;
     width: 350px;
     max-width: 90%;
     max-height: 90%;
@@ -49,10 +66,10 @@
     font-size: 18px;
 }
 
-.logoHome {
+/* .logoHome {
     height: 80px;
     margin-bottom: 30px;
-}
+} */
 
 .ipBox {
     padding: 10px;
@@ -76,12 +93,14 @@
 .runBtn{
     color: #eee;
     background-color: #07b22c;
-    border-radius: 5px;
+    border-radius: 1px;
     transition: .1s;
     font-weight: bold;
-    padding-block: 1px;
+    padding-block: .5px;
     padding-inline: 10px;
-    align-self: right;
+    margin-left: 1180px;
+    /* text-align: right; */
+    /* margin-left: auto; */
 }
 .joinBtn:hover,.runBtn:hover {
     color: #07b22c;
@@ -109,6 +128,7 @@
     border-width: 2px;
     border-color: #19ace7;
     border-radius: 3px;
+    height: 100vh;
 }
 .topTerminal{
     height: 65vh;
@@ -137,24 +157,32 @@
 .in{
     display: inline;
     width: 90%;
-    height: 33vh;
-    margin-inline: 8px;
+    height: 29vh;
+    margin-left: 16px;
     border-radius: 4px;
+    margin-bottom: 30px;
+    background-color: #0b102a;
+    color: #fff;
+    border-width: 2px;
+    border-color: #19ace7;
+    border-radius: 2px;
 }
 .out{
     display:block;
-    width: 100%;
-    height: 33vh;
+    width: 98%;
+    height: 29vh;
     outline: none;
-    margin-inline: 0px;
-    background-color: #fff;
-    color: #000;;
+    margin-bottom:30px;
+    background-color: #0b102a;
+    color: #fff;
+    border-width: 2px;
+    border-color: #19ace7;
     border-radius: 2px;
 }
 .CodeMirror-scroll, 
 .CodeMirror cm-s-erlang-dark,
 .CodeMirror{
-    height: 475px, i !important;;
+    height: 462px !important;
 }
 /* #textArea{
     height: 476.84px !important;
@@ -213,6 +241,7 @@
     border-color:#19ace7;
     border-style: solid;
     border-radius: 3px;
+    height: 512px;
 }
 
 .chat__section {
@@ -241,7 +270,7 @@
 }
 
 .message__area {
-    height: 382px;
+    height: 416.399px;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -251,32 +280,38 @@
 }
 
 #chatcmsg {
+    display: block;
     width: 100%;
     outline: none;
+    color:#fff ;
     border: none;
-    border-radius: 3px;
+    /* border-radius: 3px; */
+    /* padding-top: 8px; */
     padding: 8px;
     font-size: 16px;
     outline: hidden;
     background: #fff;
+    background-color: #03021e;
 }
 
 .message {
-    padding: 20px;
-    border-radius: 4px;
+    padding-inline: 30px;
+    padding-block: 10px;
+    border-radius: 15px;
     margin-bottom: 40px;
     max-width: 300px;
     position: relative;
 }
 
 .incoming {
-    background: #3f7bcf;
+    background: #0b102a;
     color: #fff;
+    margin-right: auto;
 }
 
 .outgoing {
-    background: #e9eafd;
-    color: #18181d;
+    background: #19ace7;
+    color: #fff;
     margin-left: auto;
 }
 
@@ -291,12 +326,19 @@
 
 #cont{
     background-color:#07b22c;
+    display: block;
+    margin-left: 30px;
 }
 #Box{
+    margin-top: 0px;
     background-color: rgb(6, 25, 58);
+
 }
 #logTitle{
     font-size: 30px;
     color: #fff;
     font-weight: bold;
+}
+.field{
+    margin-top: 10px;
 }

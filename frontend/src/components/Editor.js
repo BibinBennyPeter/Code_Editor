@@ -16,30 +16,9 @@ const Editor = (props) => {
   const [inp, setInp] = useState('');
   const editor = useRef(null)
   const roomId = props.id;
-  const proTitle = props.title;
+  // const proTitle = props.title;
   const tk = props.t;
-
-  console.log(tk);
   
-  async function runFunc(){
-      const code  =editor.current.getValue();
-      //const in=document.getElementById('in')
-      //const stdin = in.getValue();
-      const stdin=inp;
-      console.log(JSON.stringify({code}))
-  
-      const result = await fetch('http://localhost:8000/home/code', {
-                          method: 'POST',
-                          headers: {
-                              'Content-Type': 'application/json',
-                              'Authorization':`Bearer ${tk}`,
-                          },
-                          body: JSON.stringify({code,stdin})
-                      })
-                  .then((res) => res.json())
-                  .catch(err => { console.log("error:" + err) });
-// >>>>>>> 6322cd2af45847cf9951a22762ee40fe7514935d
-
   async function runFunc() {
     const code = editor.current.getValue();
     //const in=document.getElementById('in')
@@ -51,7 +30,7 @@ const Editor = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': tk,
+        'Authorization':`Bearer ${tk}`,
       },
       body: JSON.stringify({ code, stdin })
     })
@@ -64,7 +43,6 @@ const Editor = (props) => {
   function sendMessage(c) {
     let msg = {
       room: roomId.trim(),
-      user: proTitle,
       message: c.trim()
     };
     socket.emit('message', msg)
@@ -72,8 +50,7 @@ const Editor = (props) => {
 
   useEffect(() => {
     async function init() {
-      editor.current = Codemirror.fromTextArea(
-        document.getElementById('liveCode'),
+      editor.current = Codemirror.fromTextArea(document.getElementById('liveCode'),
         {
           mode: "text/x-python",
           theme: 'colorforth',
@@ -83,16 +60,6 @@ const Editor = (props) => {
         }
       );
 
-// <<<<<<< HEAD
-      editor.current.on('change', (instance, changes) => {
-        //console.log('changes',changes);
-        const { origin } = changes;
-        const code = instance.getValue();
-        //console.log(code);
-        if (origin !== 'setValue') {
-          sendMessage(code);
-        }
-// =======
         editor.current.on('change',(instance,changes) => {
           //console.log('changes',changes);
           const {origin}=changes;
@@ -106,15 +73,11 @@ const Editor = (props) => {
             sendMessage(code) 
             
         })
-          
-          
-        });
-// >>>>>>> 6322cd2af45847cf9951a22762ee40fe7514935d
 
       });
 
       editor.current.setValue('print("hello world")');
-      console.log(editor.current.mode);
+      // console.log(editor.current.on(mode));
 
       socket.on('message', (msg) => {
         console.log(msg.message);
@@ -125,7 +88,7 @@ const Editor = (props) => {
       })
     };
     init();
-  }, [])}
+  }, [])
   return (
     <>
       <div className="topTerminal">
